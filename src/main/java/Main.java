@@ -1,51 +1,49 @@
 /**
  * Created by iyasuwatts on 10/17/17.
  */
-import
-
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        //Methods: userInput() , randomNumber();
-        // If userInput() > randomNumber() return "Too large";
+        //Methods: guess, Math.random(tooLargeTooSmall)
+        // If guess > Math.random(tooLargeTooSmall) return "Too large";
         //else if userInput() < randomNumber() return "Too small";
         // else return "Correct guess!!";
-userInput();
-randomNumber();
-        random number = 10
-    }
 
-    public static String userInput() {
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Enter your guess. ");
+        //Actually, ended up using do-while loop until guess was the right random number
+        {
 
-        int userInput = scan.nextInt(); //reads user input represented by n
+            int guess = 1;
 
-        if (userInput > randomNumber) {
-            System.out.println("Too large");
+            double tooLargeTooSmall = 1 + (int) (5  //tooLargeTooSmall is the random generated number
+                    * Math.random()); //1 * random number initializes random number
 
-        } else if (userInput < randomNumber) {
-            System.out.println("Too small");
-        } else {
-            System.out.println("Correct guess!!");
+            {
+
+                do {       // Do { "if else" statement until while() requirement is met
+                    System.out.print("Enter your guess: "); //Allows user input as "scan"
+                    Scanner scan = new Scanner(System.in);
+
+
+                    guess = scan.nextInt(); //reads user guess through scanner
+                    if (guess > tooLargeTooSmall) {
+                        System.out.println("Too large"); //Guess higher than Math.random()
+
+                    } else if (guess < tooLargeTooSmall) {
+                        System.out.println("Too small"); //Guess lower than Math.random()
+                    } else {
+                        System.out.println("Correct guess!!"); //Guess equals Math.random()
+                    }
+                } while (guess != tooLargeTooSmall); //while() guess isn't equal to random number
+
+            }
 
         }
-        return String.valueOf(userInput);
-
-
-    } return userInput;
-}
-        public static int randomNumber(){ //
-
-
-
-
-
-
-
-
     }
 }
+
+
+
 
